@@ -26,7 +26,6 @@ module.exports.userAlreadyExists = async (req, res, next) => {
     if (potentialUser.rowCount > 0){
         return res.status(400).json({ error: "User already exists." });
     }
-    console.log(potentialUser.rowCount);
     next();
 }
 

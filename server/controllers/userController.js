@@ -31,9 +31,11 @@ module.exports.getUser = async (req, res) => {
             [req.user.userId]
         );
         res.status(200).json({
-            userId: user.rows[0].user_id,
-            fullname: user.rows[0].fullname,
-            email: user.rows[0].email,
+            user: {
+                userId: user.rows[0].user_id,
+                fullname: user.rows[0].fullname,
+                email: user.rows[0].email
+            }
         })
     } catch (err){
         console.error(err.message);
